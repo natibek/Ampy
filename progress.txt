@@ -1,0 +1,8 @@
+- linking imports by checking if they are .ampy files and converting them .py
+	 - maybe recursive
+- translating all the key words
+- deciding on using regex or state machine
+- logo
+- documenting the translations
+- hosting on pypy
+- writing code with ampy
