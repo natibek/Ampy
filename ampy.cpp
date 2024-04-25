@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 #include <filesystem>
+#include <jsoncpp/json/json.h>
 #include "ampy.h"
 
 
@@ -23,7 +24,44 @@ bool verify_file(std::string file_name){
 
 void initialize_key_word_map()
 {   
-    key_words = {};
+    std::ifstream json_file ("./ampy_keywords.json", std::ifstream::binary);
+    Json::Value myJson;
+
+    json_file >> myJson;
+    std::cout << myJson.size()<< '\n';
+    int count = 0;
+
+    Json::Value::iterator it = myJson.begin();
+
+    for (Json::Value::const_iterator it = myJson.begin(); it != myJson.end(); ++it) {
+        key_words[it.key().asString()] = (*it).asString();
+        count ++;
+    }
+
+    if (count != myJson.size()){
+        std::cout << "The parse json has " << count << " while the input has " << myJson.size() << " elements" << '\n';
+        exit(1);
+    }
+
+    std::cout << count << ": size of parsed";
+    count = 0;
+    for (auto& element : key_words){
+        count ++;
+        std::cout << element.first << " : " << element.second << std::endl;
+    }
+    
+    std::cout << count << '\n';
+
+    if (key_words.size() != myJson.size()){
+        std::cout << "The key_word has " << count << " while the input has " << myJson.size() << " elements" << '\n';
+        exit(1);
+    }
+    std::cout << key_words.at("ላምዳ") << '\n';
+}
+
+void transpile(std::ifstream *src, std::ofstream *output)
+{
+    
 }
 
 int main(int argc, char *argv[])
