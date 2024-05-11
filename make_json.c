@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
     FILE *json_src;
     if (argc != 2){
-        fprintf(stderr, "Only input one argument which is the file name");
+        fprintf(stderr, "Only input one argument which is the file name\n");
         exit(1);
     }
 
@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     json_src = fopen(file_name, "r");
     
     if (!json_src){
-        fprintf(stderr, "Can not open file");
+        fprintf(stderr, "Can not open file\n");
         exit(1);
     }
 
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     json_output = fopen("keywords_parsed.json", "w");
 
     if (!json_output){
-        fprintf(stderr, "Can not create json file");
+        fprintf(stderr, "Can not create json file\n");
         exit(1);
     }
 
@@ -39,7 +39,10 @@ int main(int argc, char *argv[])
             case '\"':
                 dquote_count ++;
                 goto other;
-
+            case '/':
+                while((c = fgetc(json_src)) != '\n'){
+                }
+                break;
             case '\n':
                 // fputc(c, json_output);
                 dquote_count = 0, comma_count = 0;

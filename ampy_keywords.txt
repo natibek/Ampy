@@ -1,16 +1,16 @@
 {
-    "ከሆነ":"if", "አለበለዚያ":"else", "ሌላ-ከሆነ":"elif", 
+    "ከሆነ":"if", "አልያ":"else", "ሌላ-ከሆነ":"elif", 
     "እያለ": "while", "ለ":"for", "ስበር":"break", "ቀጥል":"continue", "እለፍ":"pass",
     "ክፈት": "open", "በ":"with", 
-    "አጣምር": "match", "ክስተት":"case", "ቀር":"default",  
+    "አዛምድ": "match", "ክስተት":"case", "ነባሪ":"default",  
     "አጥፋ": "del", "ሰርዝ":"remove", 
-    "እና": "and", "ወይም":"or" , "እውነት":"True", "ሁስት":"False", "ሁሉም": "all", "አንዱም":"any", "አይደለም":"not",
-    "እንደ": "as", "አምጣ":"import", "ከ":"from",
+    "እና": "and", "ወይም":"or" , "እውነት":"True", "ሁስት":"False", "ሁሉም": "all", "አንዱም":"any", 
+"አይደለም":"not",  "እንደ": "as", "አስገባ":"import", "ከ":"from",
     "ግለፅ": "def" ,"ግለጽ":"def", "መልስ":"return", "አምርት":"yield",
-    "ምክር": "try", "አልያ":"except", "በመጨረሻ":"finally", "አንሳ":"raise",
+    "ምክር": "try", "አለበለዚያ":"except", "በመጨረሻ":"finally", "አንሳ":"raise",
     "አጠቃላይ": "global", "የውጪ":"nonlocal",
-    "ነው": "is", "ውስጥ":"in", "ላምዳ":"lambda" , "ምንም":"None", 
-    "አትም": "print", "፣": ",", "መለያ": "id",
+    "ነው": "is", "በነዚህ":"in", "ላምዳ":"lambda" , "ምንም":"None", 
+    "አትም": "print", "፣": ",", "መታወቅያ": "id", ":":":", "አጣምር":"zip",
     
     
     // string function
@@ -19,12 +19,11 @@
     "መሃል": "center", "መሀል": "center", "ታብ-አስፋ":"expandtabs", 
     "ቅርጽ":"format", "ቅርፅ":"format", "ቅርጽ-ካርታ":"format_map", "ቅርፅ-ካርታ":"format_map","ፊደል-ቁጥር-ነው": "isalnum", 
     "ፊደል-ነው":"isalpha", "አስኪ-ነው":"isascii", "አስርዮሽ-ነው":"isdecimal", "አሃዝ-ነው":"isdigit",
-    "መለያ-ነው": "isidentifier", "ትንሽ-ነው":"islower", "ቁጥር-ነው":"isnumeric", "የሚጻፍ-ነው":"isprintable", 
-    "የሚፃፍ-ነው": "isprintable", "ባዶ-ቦታ-ነው":"isspace","ርዕስ-ነው": "istitle", "ትልቅ፟-ነው":"isupper", 
-    "ግራ-ያዝ":"ljust", "አሳንስ":"lower", "ግራ-ቀንስ":"lstrip", "ፊደላት-በዚህ-ቀይር": "maketrans", 
-    "አከፋፍል":"partition", "ተካ":"replace", "ቀኝ-ፈልግ":"rfind", "በቀኝ-ቦታው":"rindex", 
-    "ቀኝ-ያዝ": "rjust", "ቀኝ-ቀንስ":"rstrip", "ትልቅነት-ቀያይር":"swapcase", "ርዕስ":"title", 
-    "ፊደላት-ቀይር":"translate", "አስተልቅ": "upper", "ዘሮ-ሙላ":"zfill",
+    "መታወቅያ-ነው": "isidentifier", "ትንሽ-ነው":"islower", "ቁጥር-ነው":"isnumeric", "የሚታተም-ነው":"isprintable", "ባዶ-ቦታ-ነው":"isspace","ርዕስ-ነው": "istitle", "ርእስ-ነው":"istitle", "ትልቅ-ነው":"isupper", 
+    "ግራ-አስይዝ":"ljust", "አሳንስ":"lower", "ግራ-ቀንስ":"lstrip", "ፊደላት-በዚህ-ቀይር": "maketrans", 
+    "አከፋፍል":"partition", "ተካ":"replace", "ቀኝ-ፈልግ":"rfind", "በቀኝ-ቦታ":"rindex", 
+    "ቀኝ-አስይዝ": "rjust", "ቀኝ-ቀንስ":"rstrip", "ትልቅነት-ቀያይር":"swapcase", "ርዕስ":"title", "ርእስ":"title",
+    "ፊደላት-ቀይር":"translate", "አተልቅ": "upper", "ዘሮ-ሙላ":"zfill",
 
 
     // types
@@ -39,7 +38,7 @@
     // random module
     "ባየሽ": "random", "ዘር": "seed", "ሁኔታውን-አምጣ": "getstate", "ሁኔታውን-ቀይር": "setstate", 
     "ባየሽ-ቢት-አምጣ": "getrandbits","ባየሽ-ድርድር":"randrange", "ባየሽ-ድፍን-ቁጥር":"randint", "ምርጫ": "choice", "ምርጫዎች": "choices", 
-    "ፐውዝ": "shuffle", "ናሙና": "sample", "ውህድ": "uniform", "ሶስት-መአዘናዊ": "triangular", 
+    "ፐውዝ": "shuffle", "ናሙና": "sample", "ውህድ": "uniform", "ሶስት-መአዘናዊ": "triangular",  "ሶስት-መዐዘናዊ": "triangular",  "ሶስት-መዓዘናዊ": "triangular", 
 
     // requests
     "ጥያቄዎች":"requests", "ራስ":"head", "አስተካክል":"patch", "ለጥፍ":"post", "አስቀምጥ":"put",
@@ -48,33 +47,31 @@
     // Math
     "ትንሹ":"min", "ትልቁ": "max", "አዎንታ":"abs", "ሂሳብ": "math",
     "ዳግም-ዘር": "sqrt", "ጣራ": "ceil", "ምድር":"floor", 
-    "ኢሳይን": "asin", "ኢኮስ":"acos", "ኮስ": "cos",  "ኢሲይን":"sin", "ኢታን":"atan",
+    "ኢሳይን": "asin", "ኢኮስ":"acos", "ኮስ": "cos",  "ሳይን":"sin", "ኢታን":"atan",
     "ኢታን2": "atan2", "ታን":"tan", "ጥማሬ":"comb", "ልክ": "degrees", "ርቀት": "dist", 
     "ሰባራ-አዎንታ": "fabs", "ሰያፍ": "hypo", "ተቀራራቢ-ናቸው": "isclose", 
-    "የሚወሰን-ነው":"isfinite", "የማይወሰን-ነው":"isinf", "ቁጥር-አይደለም":"isnan",
+    "የሚወሰን-ነው":"isfinite", "የማይወሰን-ነው":"isinf", "ኢቁጥር-ነው":"isnan",
     "ዳግማዊ-ነው-": "issqrt", "አርባ": "pow", "አጭራሪ": "radians",
     "ኢ":"exp","ብዜት":"factorial", "ትያከ":"gcd",
 
     // list functions
     "ተደርድሯል":"sorted", "ደርድር":"sort", "ተቀልብሷል": "reversed", "ቀልብስ":"reverse", 
     "ክተት": "insert", "አስረዝም": "extend", "አክል": "append", "አንጻ": "clear", 
-    "አንፃ": "clear", "ቅዳ": "copy", "ቁጠር": "count", "ቦታው": "index", 
+    "አንፃ": "clear", "ቅዳ": "copy", "ቁጠር": "count", "ቦታ": "index", 
     "ፈልግ": "find", 
 
     // dict methods
     "ከቁልፎች":"fromkeys", "እቃዎች":"items", "ቁልፎች":"keys", "አውጣ":"pop", "እቃ-አውጣ": "popitem", 
-    "ነባሪ-ቀይር": "setdefault", "አድስ":"update", "መጠን": "values", 
+    "ነባሪ-ቀይር": "setdefault", "አድስ":"update", "መጠኖች": "values", 
     
     // set methods
     "ጨምር":"add", "ልዩነት":"difference", "ልዩነት-አድስ": "difference_update", "ጣል":"discard",
     "መገናኛ": "intersection", "መገናኛ-አድስ": "intersection_update", "የተለያየ-ነው": "isdisjoint", 
-    "የታቀፈ-ነው": "issubset", "ያቀፈ-ነው": "issuperset", "ህብረት": "union", "ትይዩ-ልዩነት": "symmertic_difference", 
-    "ትይዩ-ልዩነት-አድስ": "symmertric_difference_update", 
+    "የታቀፈ-ነው": "issubset", "ያቀፈ-ነው": "issuperset", "ህብረት": "union", "ትይዩ-ልዩነት":"symmetric_difference", "ትይዩ-ልዩነት-አድስ": "symmetric_difference_update", 
 
     // file methods
     "የማስገቢያ-ነው": "isatty", "ዝጋ": "close", "ንቀል": "detach", "ፋይል-ቁጥር":"fileno", "አጽዳ": "flush", "አፅዳ": "flush", 
-    "አንብብ": "read", "የሚነባብ-ነው": "readable", "መስመር-አንብብ": "readline", "መስመሮችን-አንብብ": "readlines", 
-    "እሻ": "seek", "የሚሻ-ነው": "seekable", "ንገር": "tell", "አጠጋጋ": "truncate", "የሚያጽፍ-ነው": "writable", "ጻፍ": "write",
+    "አንብብ": "read", "የሚነበብ-ነው": "readable", "መስመር-አንብብ": "readline", "መስመሮችን-አንብብ": "readlines", "የሚሻ-ነው": "seekable", "ንገር": "tell", "አጠጋጋ": "truncate", "የሚያጽፍ-ነው": "writable", "ጻፍ": "write",
     "ፃፍ": "write", "መስመሮች-ጻፍ": "writelines", "መስመሮች-ፃፍ": "writelines", 
     
     // statistics
@@ -86,44 +83,63 @@
     "ተደጋጋሚ": "mode", "ሙሉ-ርቆሽ":"pstdev", "ርቆሽ": "stdev", "ሙሉ-አለያየት": "pvariance", "አለያየት":"variance",
     
     // re
-    "re" "search" "compile" "fullmatch" "findall" "finditer" "sub" "subn" "escape" "purge"
-    "group" "expand" "groups" "groupdict" "start" "end" "span" "pos" "endpos" "lastindex"
-    "lastgroup" 
+   "ደንብ":"re",  "አስስ": "search", "አቀናብር":"compile", "ሙሉ-አመሳስል":"fullmatch", "ሁሉንም-ፈልግ":"findall", "በድግግም-ፈልግ":"finditer", "ንዑስ": "sub", "ንኡስ": "subn", "አስወጣ": "escape", "ደምስስ" :"purge",  "መድብ": "group", "አስፋ": "expand", "ምድቦች": "groups", "በመዝገብ-መድብ":"groupdict", "መጀመሪያ":"start", "መጨረሻ":"end", "እቀፍ":"span", "ስፍራ":"pos", "መጨረሻ-ስፍራ":"endpos", "መጨረሻ-ቦታ":"lastindex", "መጨረሻ-ምድብ":"lastgroup",
     
     // sys
-    https://docs.python.org/3/library/sys.html
+//    https://docs.python.org/3/library/sys.html
+"ግብአት-ዝርዝር":"argv", "ውጣ":"exit", "አሠራር":"sys", "አሰራር":"sys",
     
     // webbrowser
-    https://docs.python.org/3/library/webbrowser.html
-    
+ //   https://docs.python.org/3/library/webbrowser.html
+     
+"አዲስ-ክፈት": "open_new", "አዲስ-ማውጫ-ክፈት":"open_new_tab", "መዝግብ": "register", "ስም": "name", "ድረገጽ-አሳሽ": "webbrowser",
+
     // os 
-    https://docs.python.org/3/library/os.html
-    
+   // https://docs.python.org/3/library/os.html
+"አከባቢ":"environ", "አከባቢ-ቢ":"environb", "አድራሻ":"path", "ማውጫ-ቀይር":"chdir", "ያለንበትን-ማውጫ-አምጣ":"getcwd", "አካባቢ-አምጣ":"getenv", "አካባቢ-ቢ-አምጣ":"getenvb", "አሰራር-ስም":"uname", "አስከፍት":"access", "ማውጫ-ዘርዘር":"listdir", "ማውጫ-ስራ":"mkdir", "ማውጫዎች-ስራ":"mkdirs", "ማውጫዎች-ሰርዝ":"removedirs", "ዳግም-ሰይም":"rename", "ዳግም-ሰይማቸው":"renames", "ማውጫ-ሰርዝ":"rmdir", "ማውጫ-ነው":"is_dir", "ፋይል-ነው":"is_file", "ጉረድ":"truncate", "ተራመድ":"walk", "አቋርጥ":"abort", "ግደል":"kill", "ጥሩ":"nice","ጊዜያት":"times", "ጠብቅ":"wait", "በመለያ-ጠብቅ":"waitid", "መክፈያ":"sep", "ባየሽ-አምጣ":"getrandom", "ባየሽ-ከአሰራር":"urandom", "ዋና-አሰራር":"os", "ከአካባቢ-አውጣ":"unsetevn", "አስመልስ":"unshare", 
+
+    // os.path lexists, expandvars, 
+   // https://docs.python.org/3/library/os.path.html
+"ስር-ስም":"basename", "የታረመ-አድራሻ-አድራሻ":"abspath", "ተመሳሳይ-አድራሻ":"commonpath", "ተመሳሳይ-ድህረ-ቅጥያ":"commonprefix", "የማውጫ-ስም":"dirname", "አለ":"exists", "ተጠቃሚውን-አስፋ":"expanduser", "የተከፈተበት-ጊዜ-አምጣ":"getatime", "ድራይቭ-ከፋፍል":"splitdrive", "ስር-ከፋፍል":"splitroot", "ቅጥያ-ከፋፍል":"splitext", "ጥቅም-ጊዜ-አምጣ":"getmtime", "ምስረታ-ጊዜ-አምጣ":"getctime", "መጠን-አምጣ":"getsize", "ፋይልነው":"isfile", "ማውጫነው":"isdir", "ፍፁም-ነው":"isabs", "መገናኛ-ነው":"isjunction", "አያያዥ-ነው":"islink",  "ማስቀመጫ-ነው":"ismount", "ዴቭ-ድራይቭ-ነው":"isdevdrive", "ፊደል-አስተካክል":"normcase", "እውነት-አድራሻ":"realpath", "አንፃራዊ-አድራሻ":"relpath", "አንጻራዊ-አድራሻ":"relpath", "አድራሻ-አስተካክል":"normpath", "ተመሳሳይ-ፋይል":"samefile", "ተመሳሳይ-ክፍት-ፋይል":"sameopenfile", "ተመሳሳይ-ናሙና":"samestat",  
+
     //json
-    https://docs.python.org/3/library/json.html
+//    https://docs.python.org/3/library/json.html
     
+"አራግፋቸው":"dumps", "አራግፍ":"dump", "ቁልፎችን-ደርድር":"sort_keys", "ወደውስጥ-ግፋ":"indent", "መክፈያዎች":"separators", "ጫናቸው":"loads", "ጫን":"load", "ጄሶን-ገላጭ":"JSONDeconder", "ጄሶን":"json", "ግለጥ":"decode", "ጥሬ-ግለጥ":"raw_decode", "ጄሶን-ሰዋሪ":"JSONEncoder", "በድግግም-ሰውር":"iterencode", "መልእክት":"msg", "ሰነድ":"doc", "ቦት":"pos", "መስመር-ቁጥር":"lineno", "ረድፍ-ቁጥር":"colno", "ኩልፎችን-ዝለል":"skipkeys", "ኢቁጥር-ፍቀድ":"allow_nan", "አስኪ-አረጋገጠ":"ensure_ascii", "ክብነት-አጣራ":"check_circular", "ጎዶሎ-ቅጥር-ነጣጥል":"parse_float", "ቅጥር-ነጣጥል":"parse_int", "ቋሚ-ነጣጥል":"parse_constant", "ጥብቅ":"strict", "አይነት":"cls", "ስሪት-ጠባቂ":"object_hook", "ስሪት-ጥንድ-ጠባቂ":"object_pairs_hook",  "ስሪት":"obj", 
+
+
+
     // datetime
-    https://docs.python.org/3/library/datetime.html
+//    https://docs.python.org/3/library/datetime.html
+"ትንሹ-አመት":"MINYEAR", "ትልቁ-አመት":"MAXYEAR", "ስቃዊ-ጊዜ":"timetz","ዩቱሲ-ዩቲሲ":"UTC", "ጊዜ":"time", "ዕለት-ጊዜ":"datetime", "ቀናት":"days", "ቀን":"day", "ሰክንዶች":"seconds", "ሰክንድ":"second", "ማይክሮ-ሰከንድ":"microsecond", "ማይክሮ-ሰከንዶች":"microseconds", "ሚሊ-ሰከንዶች":"milliseconds", "ሚሊ-ሰከንድ":"millisecond", "ደቂቃት":"minutes", "ደቂቃ":"minute", "ሰአት":"hour", "ሰዓት":"hour", "ሰዐት":"hour", "ሰአታት":"hours", "ሰዓታት":"hours", "ሰዐታት":"hours", "ሳምንታት":"weeks", "ሳምንት":"week", "ጥቃቅንነት":"resolution", "አጠቃላይ-ሰከንዶች":"total_seconds", "ዛሬ":"today", "አመት":"year", "ወር":"month", "ወራት":"months", "ጊዜ-ፅኑ-ዝርዝር":"timetuple", "ጊዜ-ጽኑ-ዝርዝር":"timetuple", "ወደመደበኛ" :"toordinal", "አዘቦት":"weekday", "አይኤስኦ-አዘቦት":"isoweekday", "አይኤስኦ-ካላንደር":"isocalendar", "አሁን":"now", "ዩቲሲ-አሁን":"utcnow", "አዋህድ":"combine", "ከአይኤስኦ-ካላንደር":"fromisocalendar", "እጠፍ":"fold", "ከዩቲሲ":"fromutc", "ዩቲሲ":"utc", "ጊዜ-ልዩነት":"timedelta", "ጊዜ-ሰቅ-መግለጫ":"tzinfo", "ጊዜ-ሰቅ":"timezone", "ከጊዜማኅተም":"fromtimestamp", "ከመደበኛ":"fromordinal", "ከአይኤስኦ":"fromisoformat", "አይኤስኦ-ቅርጽ":"isoformat", "ጽሁፋዊ-ጊዜ":"ctime", "ፅሁፋዊ-ጊዜ":"ctime", "ጽሁፍ-ከጊዜ":"strftime", "ፅሁፍ-ቅ-ከጊዜ":"strftime", "ከጽሁፍ-ጊዜ":"strptime", "ከፅሁፍ-ጊዜ":"strptime", "ዩቱሲ-ከማኅተም":"utcfromtimestamp", "ዩቱሲ-ማካካሻ":"utcoffset",  "ብ-ጊዜ":"dst", "ጊዜ-ሰቅ-ስም":"tzname", "ዕለት":"date", 
+
+
     
     // heapq
-    https://docs.python.org/3/library/heapq.html
-    
+ //   https://docs.python.org/3/library/heapq.html
+   
+"አቅዳሚ-ክምር":"heapq", "ክምር-ግፋ":"heappush", "ክምር-አውጣ":"heappop", "ክምር-ግፋ-አውጣ":"heappushpop", "ከምር":"heapify", "ከምር-ተካ":"heapreplace", "ክምር":"heap", "እቃ":"item", "ግጠም":"merge", "ቁልፍ":"key", "ትልቆቹ":"nlargest", "ትንሾቹ":"nsmallest", "ቅድሚያ":"priority", 
+
     // collections
-    https://docs.python.org/3/library/collections.html
-    
-    // os.path
-    https://docs.python.org/3/library/os.path.html
+ //   https://docs.python.org/3/library/collections.html
     
     // csv
-    https://docs.python.org/3/library/csv.html
-    
+//    https://docs.python.org/3/library/csv.html
+"ሲኤስቪ":"csv", "አንባቢ":"reader", "ጸሀፊ":"writer", "ፀሀፊ":"writer", "ዘዬ-መዝግብ":"register_dialect", "ዘዬ":"dialect", "ዘዬ-ሰርዝ":"unregister_dialect",  "ዘዬ-አምጣ":"get_dialect", "ዘዬ-ዘርዝር":"list_dialects", "የቁልፍ-ስፍት-ወሰን":"field_size_limit",  "መዝገብ-አንባቢ":"DictReader", "ፋ":"f", "የቁልፍ-ስሞች":"fieldnames",  "የትርፍ-ቁልፍ":"restkey", "የትርፍ-መጠን":"restval", "መዝገብ-ጸሀፊ":"DictWriter",  "መዝገብ-ፀሀፊ":"DictWriter",  "ዘዬዘዬ":"Dialect", "ኤክሴል":"excel", "ኤክሴል-ማውጫ":"excel_tab",  "ዩኒክስ-ዘዬ":"unix_dialect", "አነፍናፊ":"Sniffer", "አነፍንፍ":"sniff",  "ራስጌ-አለው":"has_header", "እሻ":"seek", "ሁሉን-ጥቀስ":"QUOTE_ALL",  "አነስተኛ-ጥቀስ":"QUOTE_MINIMAL", "ኢቁጥር-ጥቀስ":"QUOTE_NONNUMERIC", "ምንም-ጥቀስ":"QUOTE_NONE",  "ኢአልቦ-ጥቀስ":"QUOTE_NOTNULL", "ፊደላት-ጥቀስ":"QUOTE_STRINGS", "ስሕተት":"Error",  "መነጠያ":"delimiter", "ሁለት-ትእምርተ-ጥቅስ":"doublequote", "ውጣ-ፊደል":"escapechar",  "መስመር-ጨራሽ":"lineterminator", "ትእምርተ-ጥቅስ-ፊደል":"quotechar", "አጠቃቀስ":"quoting",  "ጀማሪ-ባዶ-ዝለል":"skipinitialspace", "መስመር-ቁጥራት":"line_num",  "ተርታ-ጻፍ":"writerow", "ተርታ-ፃፍ":"writerow", "ተርታዎች-ጻፍ":"writerows", "ተርታዎች-ፃፍ":"writerows", "ሲኤስቪ-ጸሀፊ":"csvwriter", "ሲኤስቪ-ፀሀፊ":"csvwriter",  "ራስጌ-ጸሀፊ":"writeheader", "ራስጌ-ፀሀፊ":"writeheader", "አዲስ-መስመር":"newline", 
+
+/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, 
+
     // time
-    https://docs.python.org/3/library/time.html
-    
+ //   https://docs.python.org/3/library/time.html
+ "እንደጽሁፋዊ-ጊዜ":"asctime", "እንደፅሁፋዊ-ጊዜ":"asctime", "ሰዓት-ርቀት-አምጣ":"clock_getres", "ሰዓት-ጊዜ-አምጣ":"clock_gettime", "ሰዓት-ጊዜ-አምጣ-ናኖ":"clock_gettime_ns", "ሰዓት-ጊዜ-ቀይር":"clock_settime",  "ሰዓት-ጊዜ-ቀይር-ናኖ":"clock_settime_ns", "ሰዓት-መረጃ-አምጣ":"get_clock_info",  "ጊዜ-አምጣ":"gmtime", "የአካባቢ-ጊዜ":"localtime", "ወደ-ሰከንዶች":"mktime",  "የማይቀንስ":"monotonic", "የማይቀንስ-ናኖ":"monotonic_ns", "ተኛ":"sleep",  "ጊዜ-ናኖ":"time_ns", "ክር-ጊዜ":"thread_time",  "ክር-ጊዜ-ናኖ":"thread_time_ns", "ጊዜ-ሰቅ-ቀይር":"tzset", "ማካካሻ":"offset", "ሰዓት-የማስጀመሪያ-ጊዜ":"CLOCK_BOOTTIME", "ሰዓት-ክፍተኛ-ርቀት":"CLOCK_HIGHRES",  "ሰዓት-የማይቀንስ":"CLOCK_MONOTONIC", "ሰዓት-የማይቀንስ-ጥሬ-":"CLOCK_MONOTONIC_RAW", "ሰዓት-ሲፒዩ-ሂደት-መለያ":"CLOCK_PROCESS_CPU_ID",  "ሰዓት-ሲፒዩ-ሂደት":"CLOCK_PROF", "ሰዓት-ቲኤአይ":"CLOCK_TAI", "ሰዓት-ሲፒዩ-ክር-ጊዜ":"CLOCK_THREAD_CPU_TIME",  "ሰዓት-ያልተዘጋበት-ጊዜ":"CLOCK_UPTIME", "ሰዓት-ያልተዘጋበት-ጊዜ-ጥሬ":"CLOCK_UPTIME_RAW", "ሰዓት-እውነተኛ-ጊዜ":"CLOCK_REALTIME",  "ማካካሻ-ጊዜ":"altzone", "ቀነ-ብርሃን":"daylight", 
+
+/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, 
+
     // class 
     "ክፍል": "class", "እራስ":"self", "ባህሪ": "property", "ቀያሪ":"setter",
-    "ደጋጋሚ":"iter", "ቀጣይ": "next": , "ማስጀመሪያ": "init", "ገልብጥ": "invert", 
-    "lshift" "rshift" "mod" "truediv" "div" "floordiv" "mul" "add" "sub" "divmod" "xor"
-    "repr" "hash" "dir" "nonzero" "unicode" "eq" "le" "ge" "lt" "gt" "ne"
+    "ደጋጋሚ":"iter", "ቀጣይ": "next" , "ማስጀመሪያ": "init", "አስገልብጥ": "invert", "ገልብጥ":"inv", "ግራ-ግፋ":"lshift", "ቀኝ-ግፋ":"rshift", "ቀሪ":"mod", "አካፍል":"truediv", "መሬት-አካፍል":"floordiv", "አባዛ":"mul", "ደምር":"add", "ቀንስ":"sub", "ልዩ":"xor", "ውኪል":"repr", "ደብቅ":"hash", "ይዘት":"dir", "ኢዜሮ":"nonzero", "ዩኒኮድ":"unicode", "እኩል":"eq", "ያንሳል-እኩል":"le", "ይበልጣል-እኩል":"ge", "ያንሳል":"lt", "ይበልጣል":"gt", "ኢእኩል":"ne", "ግብአታት":"args", "ስዩም-ግብአታት":"kwds", "ኔጌቲቭ":"neg", "ቀጥጣል":"concat", "ይህ-አይደለም":"is_not", "ድርድር-አባዛ":"matmul", "ይይዛል":"contains", "ብዛቱ":"countOf", "እቃ-አጥፋ":"delitem", "እቃ-አምጣ":"getitem", "ቦታው":"indexOf", "እቃ-ቀይር":"setitem", "እርዝመት-ፍንጭ":"length_hint", "ጥራ":"call", "ባህር-አምጣ":"attrgetter", "እቃ-አምጪ":"itemgetter", "ተግባር-ጠሪ":"methodcaller", "እደምር":"iadd", "እእና":"iand", "እቀጥጣል":"iconcat", "እመሬት-አካፍል":"ifloordiv", "እግራ-ግፋ":"ilshift", "እቀሪ":"imod", "እቀኝ-ግፋ":"irshift", "እድርድር-አባዛ":"imatmul", "እወይም":"ior", "እአብዛ":"ipow", "እቀንስ":"isub", "እአካፍል":"itrudiv", "እልዩ":"ixor", "እርዝመት":"len", "እአባዛ":"imul", "ፋ\"":"f\""
 }
+
+// እ for i -› እዛው for inplace, "ነጣጥል":"parse", "ተግባር","method", 
+
 

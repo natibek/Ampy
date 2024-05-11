@@ -3,11 +3,13 @@
 #include <string>
 #include <unordered_map>
 #include <filesystem>
+#include <ctype.h>
 #include <jsoncpp/json/json.h>
 #include "ampy.h"
 
 
-bool verify_file(std::string file_name){
+bool verify_file(std::string file_name)
+{
     
     if (!std::filesystem::exists(file_name)){
         std::cout << file_name << " file does not exist.\n";
@@ -28,12 +30,13 @@ void initialize_key_word_map()
     Json::Value myJson;
 
     json_file >> myJson;
-    std::cout << myJson.size()<< '\n';
+    std::cout << myJson.size() << '\n';
     int count = 0;
 
-    Json::Value::iterator it = myJson.begin();
-
     for (Json::Value::const_iterator it = myJson.begin(); it != myJson.end(); ++it) {
+        if (key_words.contains(it.key().asString())){
+            std::cout << it.key().asString() << " = " << (*it).asString() << '\n';
+        }
         key_words[it.key().asString()] = (*it).asString();
         count ++;
     }
@@ -43,11 +46,15 @@ void initialize_key_word_map()
         exit(1);
     }
 
-    std::cout << count << ": size of parsed";
+    std::cout << count << ": size of parse\n";
     count = 0;
+    int key_count;
     for (auto& element : key_words){
         count ++;
-        std::cout << element.first << " : " << element.second << std::endl;
+        // std::cout << element.first << " : " << element.second << std::endl;
+        if((key_count = key_words.count(element.first)) > 1){
+            std::cout << element.first << " more than once\n";
+        }
     }
     
     std::cout << count << '\n';
@@ -61,7 +68,21 @@ void initialize_key_word_map()
 
 void transpile(std::ifstream *src, std::ofstream *output)
 {
-    
+    // go through the words in src and replace with any one from the key
+    // and write it to the output.
+
+    // find a getword methods
+    // fgetc until you hit : , . [ ] { }
+        // none alphabet character other than -
+        // 
+
+    // if (isalpha('አ')){
+    //     std::cout << 'alpha\n';
+    // } else {
+    //     std::cout << 'not alpha \n';
+    // }
+
+    // https://stackoverflow.com/questions/23082819/detect-unicode-character-in-string
 }
 
 int main(int argc, char *argv[])
@@ -95,6 +116,7 @@ int main(int argc, char *argv[])
     }
 
     initialize_key_word_map();
+    transpile(&original_file, &output_file);
 
     original_file.close();
     output_file.close();
