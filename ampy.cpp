@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <filesystem>
 #include <ctype.h>
+#include <cstdio>
 #include <jsoncpp/json/json.h>
 #include "ampy.h"
 
@@ -51,7 +52,7 @@ void initialize_key_word_map()
     int key_count;
     for (auto& element : key_words){
         count ++;
-        // std::cout << element.first << " : " << element.second << std::endl;
+        
         if((key_count = key_words.count(element.first)) > 1){
             std::cout << element.first << " more than once\n";
         }
@@ -81,6 +82,43 @@ void transpile(std::ifstream *src, std::ofstream *output)
     // } else {
     //     std::cout << 'not alpha \n';
     // }
+
+
+    /*
+    when a new word is started
+
+        1. hit any punctuation mark (make sure unicode is not within ranges)
+            a. open paren (
+            b. close paren )
+            c. colon :
+            d. comma ,
+            e. <, >, =, !, @, 
+        
+        2. empty spaces
+            a. tab,
+            b. space,
+            c. new line
+
+    check if the word is in the umap, 
+        true => write the replacement in the new file
+        false => write the word in the new file
+    -------
+    
+    if " is the character:
+        check if the last char makes it an f string
+    ------
+
+    Don't read characters from comments
+            a. if # go until new line
+            b. if multiline go until closing
+    
+    ------
+    If importing check if any are /ampy files and change them to py as well
+
+    -----
+
+    */
+
 
     // https://stackoverflow.com/questions/23082819/detect-unicode-character-in-string
 }
