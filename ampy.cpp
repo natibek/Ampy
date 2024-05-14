@@ -1,3 +1,5 @@
+#include <type_traits>
+#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,21 +27,23 @@ bool verify_file(std::string file_name)
     return true;
 }
 
-void initialize_key_word_map()
+key_words_map initialize_key_word_map()
 {   
     std::ifstream json_file ("./ampy_keywords.json", std::ifstream::binary);
     Json::Value myJson;
 
     json_file >> myJson;
-    std::cout << myJson.size() << '\n';
+    std::cout << myJson.size() << " : JSON SIZE\n";
+
     int count = 0;
+    key_words_map initialized_key_words;
 
     for (Json::Value::const_iterator it = myJson.begin(); it != myJson.end(); ++it) {
         if (key_words.contains(it.key().asString())){
             std::cout << it.key().asString() << " = " << (*it).asString() << '\n';
         }
-        key_words[it.key().asString()] = (*it).asString();
-        count ++;
+	initialized_key_words[it.key().asString()] = (*it).asString();
+        count ++;  
     }
 
     if (count != myJson.size()){
@@ -47,25 +51,79 @@ void initialize_key_word_map()
         exit(1);
     }
 
-    std::cout << count << ": size of parse\n";
+    std::cout << count << " : KEY MAP SIZE\n";
+
     count = 0;
-    int key_count;
-    for (auto& element : key_words){
+    for (auto& element : initialized_key_words){
         count ++;
         
-        if((key_count = key_words.count(element.first)) > 1){
+        if (initialized_key_words.count(element.first) > 1)
             std::cout << element.first << " more than once\n";
-        }
     }
-    
-    std::cout << count << '\n';
 
-    if (key_words.size() != myJson.size()){
-        std::cout << "The key_word has " << count << " while the input has " << myJson.size() << " elements" << '\n';
+    if (initialized_key_words.size() != myJson.size()){
+      std::cout << "The key_word has " << initialized_key_words.size() << " while the input has " << myJson.size() << " elements" << '\n';
         exit(1);
     }
-    std::cout << key_words.at("ላምዳ") << '\n';
+    return initialized_key_words;
 }
+
+
+int write_key_to_bin(key_words_map initialized_map)
+{
+  std::ofstream bin_out ("./keywords.bin", std::ios_base::binary);
+  int len;
+
+  std::cout << initialized_map.size() << " : KEY MAP SIZE\n";
+
+  std::string key_word_size = std::to_string(initialized_map.size());
+  bin_out.write(key_word_size.c_str(), key_word_size.length() + 1);
+  
+  for (auto x: initialized_map) {
+    bin_out.write(x.first.c_str(), x.first.length() + 1);
+    bin_out.write(x.second.c_str(), x.second.length() + 1);
+  }
+  
+  bin_out.close();
+
+  return 0;
+}
+
+int read_key_from_bin()
+{
+
+  std::ifstream bin_input ("./keywords.bin", std::ios_base::binary);
+  std::unordered_map<std::string, std::string> read_key;
+  int read = 0;
+
+  std::string key_words_size;
+  getline(bin_input, key_words_size, '\0');
+
+  std::string key, val;
+
+  while (1) {
+    
+    if (!getline(bin_input, key, '\0'))
+      break;
+    if (!getline(bin_input, val, '\0'))
+      break;
+    
+    //    std::cout << key <<  " -> " << val << '\n';
+    read ++;
+  }
+  bin_input.close();
+
+
+  if (stoi(key_words_size) != read) {
+    std::cout << "\nERROR => Read " << read << " | Expected " << stoi(key_words_size) << '\n';
+    exit(1);
+  }
+  
+  std::cout << read << " : PAIRS READ.\n";
+  
+  return 0;
+}
+
 
 void transpile(std::ifstream *src, std::ofstream *output)
 {
@@ -153,8 +211,17 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    initialize_key_word_map();
-    transpile(&original_file, &output_file);
+    if (access( "./keywords.bin", F_OK ) != -1 ){
+      key_words_map initialized = initialize_key_word_map();
+      std::cout << "\nFINISHED INITIALIZING FROM JSON \n\n";
+
+      write_key_to_bin(initialized);
+      std::cout << "\nFINISHED WRITING BINARY \n\n";
+    }
+
+    read_key_from_bin();
+    std::cout << "\nFINISHED READING BINARY.\n\n";
+    // transpile(&original_file, &output_file);
 
     original_file.close();
     output_file.close();
