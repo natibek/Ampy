@@ -1,8 +1,14 @@
+
 - linking imports by checking if they are .ampy files and converting them .py
 	 - maybe recursive
 - translating all the key words [DONE]
+- write key words to a binary file [DONE]
+- read key words from a binary file [DONE]
+- make separate binaries for libraries
+
 - deciding on using regex or state machine
 - logo
+
 - documenting the translations
 - hosting on pypy
 - writing code with ampy
