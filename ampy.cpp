@@ -42,7 +42,7 @@ key_words_map initialize_key_word_map()
         if (key_words.contains(it.key().asString())){
             std::cout << it.key().asString() << " = " << (*it).asString() << '\n';
         }
-	initialized_key_words[it.key().asString()] = (*it).asString();
+	    initialized_key_words[it.key().asString()] = (*it).asString();
         count ++;  
     }
 
@@ -93,7 +93,7 @@ int read_key_from_bin()
 {
 
   std::ifstream bin_input ("./keywords.bin", std::ios_base::binary);
-  std::unordered_map<std::string, std::string> read_key;
+
   int read = 0;
 
   std::string key_words_size;
@@ -109,6 +109,7 @@ int read_key_from_bin()
       break;
     
     //    std::cout << key <<  " -> " << val << '\n';
+    key_words[key] = val;
     read ++;
   }
   bin_input.close();
@@ -174,11 +175,99 @@ void transpile(std::ifstream *src, std::ofstream *output)
     If importing check if any are /ampy files and change them to py as well
 
     -----
-
     */
 
+   std::string cur = "";
+   char c, quote;
+   int single_quote = 0, dbl_quote = 0, count;
+   while ((c = (*src).get()) != EOF) {
 
-    // https://stackoverflow.com/questions/23082819/detect-unicode-character-in-string
+        if (c == '\'') single_quote++;
+        else if (c == '\"') dbl_quote++;
+
+        if (single_quote == 3 || dbl_quote == 3) {
+            count = 0;   
+            quote = c;
+            (*output).put(c);
+            
+            while (count < 3) {
+                c = (*src).get();
+                if (c == EOF) return;
+                if (c == quote) count++;
+                (*output).put(c);
+            }            
+
+            if (single_quote == 3) single_quote = 0;
+            else if (dbl_quote == 3) dbl_quote = 0;
+            cur = "";
+            continue;
+        }
+    
+        switch(c) {
+            case '\'': case '\"': // quotes  
+            case ' ': case '\n': case '\t': // white spaces
+            case '[': case ']': case '(': case ')': case '{': case '}': // braces
+            case '<': case '>': case '=': case '!': // comparison
+            case '.': case ':': case '?': case ',': // punctionation
+            case '|': case '@': case '*': case '%': case '&': case '^': case '+': case '-': // operations
+            case '$': case '~': case '`': case ';': // other symbols
+                // have ran into an end of a word, check if the word is an ampy key term
+                if (cur.size() == 0) {
+                    (*output).put(c);
+                    break;    
+                }
+
+                if (key_words.find(cur) != key_words.end()) {
+                    (*output).write(key_words[cur].c_str(), key_words[cur].length());
+                    // std::cout << "AMPY " << cur << key_words[cur] << '\n';
+                } else {
+                    (*output).write(cur.c_str(), cur.length());          
+                    // std::cout << "REG " << cur << '\n';
+                }
+
+                (*output).put(c);
+                cur = "";
+                break;
+
+            case '#': // comment case
+                if (cur.size() > 0) {
+                    if (key_words.find(cur) != key_words.end()) {
+                        (*output).write(key_words[cur].c_str(), key_words[cur].length());
+                        // std::cout << "AMPY " << cur << key_words[cur] << '\n';
+                    } else {
+                        (*output).write(cur.c_str(), cur.length());          
+                        // std::cout << "REG " << cur << '\n';
+                    }
+                }
+                cur = "";
+                
+                while (c != '\n' && c != EOF) {
+                    // std::cout << "CHAR AFTER # " << c << " ";
+                    (*output).put(c);
+                    c = (*src).get();
+                }
+                // std::cout << '\n';
+
+                if (c == '\n') (*output).put(c);
+                if (c == EOF) return;
+                break;
+
+            default: // any other character, add to current word
+                cur += c;
+                // std::cout << "DEF " << cur << '\n';
+                break;
+        }   
+   }
+
+   if (cur.size() > 0) {
+        if (key_words.find(cur) != key_words.end()) {
+            (*output).write(key_words[cur].c_str(), key_words[cur].length());
+            // std::cout << "AMPY " << cur << key_words[cur] << '\n';
+        } else {
+            (*output).write(cur.c_str(), cur.length());          
+            // std::cout << "REG " << cur << '\n';
+        }
+   }
 }
 
 int main(int argc, char *argv[])
@@ -204,14 +293,15 @@ int main(int argc, char *argv[])
     }
 
     std::filesystem::path path {file_name}, ext (".py");
-    std::ofstream output_file (path.replace_extension(ext));
+    std::string dst_file_name = (path.replace_extension(ext));
+    std::ofstream output_file (dst_file_name);
     
     if (!output_file.is_open()){
         std::cout << "Error with creating the output file " << path << std::endl;
         exit(1);
     }
 
-    if (access( "./keywords.bin", F_OK ) != -1 ){
+    if (access( "./keywords.bin", F_OK ) == -1 ){
       key_words_map initialized = initialize_key_word_map();
       std::cout << "\nFINISHED INITIALIZING FROM JSON \n\n";
 
@@ -221,9 +311,14 @@ int main(int argc, char *argv[])
 
     read_key_from_bin();
     std::cout << "\nFINISHED READING BINARY.\n\n";
-    // transpile(&original_file, &output_file);
+    transpile(&original_file, &output_file);
 
     original_file.close();
     output_file.close();
+
+    std::cout << "...........\n\n";
+
+    std::string command = "python3 " + dst_file_name;   
+    system(command.c_str());
     return 0;
 }
