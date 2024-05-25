@@ -6,10 +6,10 @@
 - read key words from a binary file [DONE]
 - make separate binaries for libraries
 
-- deciding on using regex or state machine
+- deciding on using regex or state machine [DONE]
 - logo
 
-- documenting the translations
+- documenting the translations [DONE]
 - hosting on pypy
 - writing code with ampy
 
