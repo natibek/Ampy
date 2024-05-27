@@ -2,6 +2,19 @@
 typedef std::unordered_map<std::string, std::string> key_words_map;
 key_words_map key_words;
 
+typedef std::unordered_map<std::string, key_words_map> libraries_map;
+libraries_map library_map;
+
+// enum LIBTAG {
+//     LIBRARY,
+//     VALUE
+// };
+
+// union MAPVAL {
+//     std::string val;
+//     key_words_map key_map;
+// };
+
 // reads json and converts to an unordered map
 key_words_map initialize_key_word_map();
 

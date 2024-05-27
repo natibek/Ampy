@@ -71,78 +71,83 @@ key_words_map initialize_key_word_map()
 
 int write_key_to_bin(key_words_map initialized_map)
 {
-  std::ofstream bin_out ("./keywords.bin", std::ios_base::binary);
-  int len;
+    std::ofstream bin_out ("./keywords.bin", std::ios_base::binary);
+    int len;
 
-  std::cout << initialized_map.size() << " : KEY MAP SIZE\n";
+    std::cout << initialized_map.size() << " : KEY MAP SIZE\n";
 
-  std::string key_word_size = std::to_string(initialized_map.size());
-  bin_out.write(key_word_size.c_str(), key_word_size.length() + 1);
-  
-  for (auto x: initialized_map) {
+    std::string key_word_size = std::to_string(initialized_map.size());
+    bin_out.write(key_word_size.c_str(), key_word_size.length() + 1);
+
+    for (auto x: initialized_map) {
     bin_out.write(x.first.c_str(), x.first.length() + 1);
     bin_out.write(x.second.c_str(), x.second.length() + 1);
-  }
-  
-  bin_out.close();
+    }
 
-  return 0;
-}
+    bin_out.close();
 
-int read_key_from_bin()
-{
+    return 0;
+    }
 
-  std::ifstream bin_input ("./keywords.bin", std::ios_base::binary);
+    int read_key_from_bin()
+    {
 
-  int read = 0;
+    std::ifstream bin_input ("./keywords.bin", std::ios_base::binary);
 
-  std::string key_words_size;
-  getline(bin_input, key_words_size, '\0');
+    int read = 0;
+    std::string key, val, lib;
 
-  std::string key, val;
+    key_words_map *cur_map;
+    cur_map = &key_words;
 
-  while (1) {
-    
-    if (!getline(bin_input, key, '\0'))
-      break;
+    std::string key_words_size = "-1";
+    getline(bin_input, key_words_size, '\0');
+
+    while (1) {
+
+    if (!getline(bin_input, key, '\0')) {
+        if (cur_map->size() > 0) library_map[lib] = (*cur_map);
+        break;
+    }  
+
     if (!getline(bin_input, val, '\0'))
-      break;
-    
-    //    std::cout << key <<  " -> " << val << '\n';
-    key_words[key] = val;
+        break;
+
+    if (val == "library") {
+        // if (cur_map->size() > 0) {
+        //     library_map[lib] = (*cur_map);
+        // }
+        // lib = key;
+        // key_words_map new_lib;
+        // cur_map = &new_lib;
+        // std::cout << "Library " << key << '\n';
+
+    } else {
+        (*cur_map)[key] = val;    
+    }
     read ++;
-  }
-  bin_input.close();
 
+    }
+    bin_input.close();
 
-  if (stoi(key_words_size) != read) {
-    std::cout << "\nERROR => Read " << read << " | Expected " << stoi(key_words_size) << '\n';
-    exit(1);
-  }
-  
-  std::cout << read << " : PAIRS READ.\n";
-  
-  return 0;
+    if (stoi(key_words_size) == -1) {
+        std::cout << "\nERROR reading key words size from binary\n";
+        exit(1);
+    }
+
+    if (stoi(key_words_size) != read) {
+        std::cout << "\nERROR => Read " << read << " | Expected " << stoi(key_words_size) << '\n';
+        exit(1);
+    }
+
+    std::cout << read << " : PAIRS READ.\n";
+
+    return 0;
 }
 
 
 void transpile(std::ifstream *src, std::ofstream *output)
 {
-    // go through the words in src and replace with any one from the key
-    // and write it to the output.
-
-    // find a getword methods
-    // fgetc until you hit : , . [ ] { }
-        // none alphabet character other than -
-        // 
-
-    // if (isalpha('አ')){
-    //     std::cout << 'alpha\n';
-    // } else {
-    //     std::cout << 'not alpha \n';
-    // }
-
-
     /*
     when a new word is started
 
@@ -173,37 +178,88 @@ void transpile(std::ifstream *src, std::ofstream *output)
     
     ------
     If importing check if any are /ampy files and change them to py as well
-
+        - check if from has been used, store it in a flag
+        - if from has been used the next word is the library,
+            - add the keywords to the dictionary
+        - else if import is ever the keyword and from has not been set, the next word is the library
+        
+        case of os.path is strange. Will import os
     -----
     */
 
-   std::string cur = "";
+   key_words_map my_key_words(key_words);
+   
+   std::string cur = "", lib;
    char c, quote;
    int single_quote = 0, dbl_quote = 0, count;
-   while ((c = (*src).get()) != EOF) {
+   bool sgl_qt_flag = false, dbl_qt_flag = false;
+   bool import_flag = false, from_flag = false;
+
+
+   while ((c = src->get()) != EOF) {
+        dbl_qt_flag = c == '\"';    
+        sgl_qt_flag = c == '\'';            
 
         if (c == '\'') single_quote++;
-        else if (c == '\"') dbl_quote++;
+        else single_quote = 0;
 
-        if (single_quote == 3 || dbl_quote == 3) {
+        if (c == '\"') dbl_quote++;
+        else dbl_quote = 0;
+
+        if ((single_quote == 1 && !sgl_qt_flag) || (dbl_quote == 1 && dbl_qt_flag)) {
+            if (cur.size() > 0) {
+                if (key_words.contains(cur)) cur = key_words[cur];
+                output->write(cur.c_str(), cur.size());
+                cur = "";
+            }
+
+            quote = single_quote == 1 ? '\'' : '\"';
+            output->put(c);
+
+            while ((c = src->get()) != quote && c != EOF) {
+                output->put(c);
+            }
+
+            if (c == EOF) return;
+            if (c == quote) output->put(c);
+            
+            if (quote == '\'') single_quote = 0;
+            else if (quote == '\"') dbl_quote = 0;
+
+            continue;
+        }
+
+         if ((single_quote == 3)|| (dbl_quote == 3)){
+            if (cur.size() > 0) {
+                if (key_words.contains(cur)) cur = key_words[cur];
+                output->write(cur.c_str(), cur.size());
+                cur = "";
+            }
+
             count = 0;   
             quote = c;
-            (*output).put(c);
+            output->put(c);
             
             while (count < 3) {
-                c = (*src).get();
+                c = src->get();
                 if (c == EOF) return;
+                
                 if (c == quote) count++;
-                (*output).put(c);
+                else count = 0;
+
+                output->put(c);
             }            
 
-            if (single_quote == 3) single_quote = 0;
-            else if (dbl_quote == 3) dbl_quote = 0;
-            cur = "";
+            sgl_qt_flag = false;
+            dbl_qt_flag = false;
+            single_quote = 0;
+            dbl_quote = 0;
+ 
             continue;
         }
     
         switch(c) {
+
             case '\'': case '\"': // quotes  
             case ' ': case '\n': case '\t': // white spaces
             case '[': case ']': case '(': case ')': case '{': case '}': // braces
@@ -212,61 +268,119 @@ void transpile(std::ifstream *src, std::ofstream *output)
             case '|': case '@': case '*': case '%': case '&': case '^': case '+': case '-': // operations
             case '$': case '~': case '`': case ';': // other symbols
                 // have ran into an end of a word, check if the word is an ampy key term
+                
+                
                 if (cur.size() == 0) {
-                    (*output).put(c);
-                    break;    
+                    output->put(c);
+                    break;
+                    // if (c != '*' || (!import_flag && !from_flag)) break;    
                 }
-
-                if (key_words.find(cur) != key_words.end()) {
-                    (*output).write(key_words[cur].c_str(), key_words[cur].length());
-                    // std::cout << "AMPY " << cur << key_words[cur] << '\n';
-                } else {
-                    (*output).write(cur.c_str(), cur.length());          
-                    // std::cout << "REG " << cur << '\n';
+                std::cout << "HERE " << cur << "\n";
+                if (key_words.contains(cur)) { //key_words.find(cur) != key_words.end()) {
+                    cur = key_words[cur];
+                    std::cout << "AMPY " << cur << key_words[cur] << '\n';
                 }
+                
+                // if (import_flag && from_flag) { // case like "from math import sin" or "from math import *" cur = "sin" or c = "*", lib = "math"
+                //     import_flag = false;
+                //     from_flag = false;
+                    
+                //     if (c == '*') {
+                //         if (library_map.contains(lib)) {
+                //             my_key_words.merge(library_map[lib]);
+                //         } else if (std::filesystem::exists(lib + ".ampy")){ // importing custom python or ampy file
+                //         // check if file is ampy, then transpile that as well
+                //         }
+                //         break;
+                //     } else if (library_map.contains(lib)) { 
+                //     // case "form math import sin" cur = 'sin' sin will be translated in math but if it has translation for sub methods, 
+                //     // then sin itself will have a library_map for it which will be added to key_words_map
+                //         if (library_map.contains(cur)) {
+                //             my_key_words.merge(library_map[cur]);
+                //         } else if (library_map[lib].contains(cur)) {
+                //             my_key_words[cur] = library_map[lib][cur];
+                //             cur = library_map[lib][cur];
+                //         } else if (std::filesystem::exists(lib + ".ampy")) { // custom library
+                //             // check if lib is an ampy file and transpile it
+                //             std::string dependency = lib + ".ampy";
+                //             std::ifstream dependency_file (dependency);
+                //             std::filesystem::path path {dependency}, ext (".py");
+                //             std::string dst_file_name = (path.replace_extension(ext));
+                //             std::ofstream output_file (dst_file_name);
+                //             transpile(&dependency_file, &output_file);
+                //         }
+    
+                //     }   
+                // } else if (import_flag && !from_flag) { // case like "import math" and cur = "math" and import has been seen already
+                //     import_flag = false;
+                //     if (library_map.contains(cur)) {
+                //         my_key_words.merge(library_map[cur]); // adds the translated words from the other library to the key_words
+                //     } else if (std::filesystem::exists(lib + ".ampy")) { // importing custom python or ampy file
+                //     // check if file is ampy, then transpile that as well
+                //         std::string dependency = lib + ".ampy";
+                //         std::ifstream dependency_file (dependency);
+                //         std::filesystem::path path {dependency}, ext (".py");
+                //         std::string dst_file_name = (path.replace_extension(ext));
+                //         std::ofstream output_file (dst_file_name);
+                //         transpile(&dependency_file, &output_file);
+                //     }  
+                // } else if (from_flag) { // case like "from math", cur = "math"
+                //     lib = cur;
+                // }
 
-                (*output).put(c);
+                // if (cur == "from") from_flag = true;
+                // else if (cur == "import") import_flag = true;
+                
+
+                output->write(cur.c_str(), cur.length());          
+                output->put(c);
                 cur = "";
+
+                if (c == '\n') {
+                    from_flag = false;
+                    import_flag = false;
+                }
                 break;
 
+
             case '#': // comment case
+                std::cout << "COMMENT\n";
                 if (cur.size() > 0) {
-                    if (key_words.find(cur) != key_words.end()) {
-                        (*output).write(key_words[cur].c_str(), key_words[cur].length());
+                    if (key_words.contains(cur)) { //    if (key_words.find(cur) != key_words.end()) {
+                        cur = my_key_words[cur];
                         // std::cout << "AMPY " << cur << key_words[cur] << '\n';
-                    } else {
-                        (*output).write(cur.c_str(), cur.length());          
-                        // std::cout << "REG " << cur << '\n';
                     }
+
+                    output->write(cur.c_str(), cur.length());          
+                    cur = "";
                 }
-                cur = "";
+                
                 
                 while (c != '\n' && c != EOF) {
                     // std::cout << "CHAR AFTER # " << c << " ";
-                    (*output).put(c);
-                    c = (*src).get();
+                    output->put(c);
+                    c = src->get();
                 }
                 // std::cout << '\n';
 
-                if (c == '\n') (*output).put(c);
+                if (c == '\n') output->put(c);
                 if (c == EOF) return;
                 break;
 
             default: // any other character, add to current word
                 cur += c;
-                // std::cout << "DEF " << cur << '\n';
+                std::cout << "DEF " << cur << '\n';
                 break;
         }   
    }
 
    if (cur.size() > 0) {
-        if (key_words.find(cur) != key_words.end()) {
-            (*output).write(key_words[cur].c_str(), key_words[cur].length());
-            // std::cout << "AMPY " << cur << key_words[cur] << '\n';
-        } else {
-            (*output).write(cur.c_str(), cur.length());          
-            // std::cout << "REG " << cur << '\n';
+        if (key_words.contains(cur)) {  // if (key_words.find(cur) != key_words.end()) {
+            cur = my_key_words[cur];
+            std::cout << "AMPY " << cur << key_words[cur] << '\n';
         }
+
+        output->write(cur.c_str(), cur.length());          
    }
 }
 
