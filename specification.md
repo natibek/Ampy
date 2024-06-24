@@ -1,4 +1,4 @@
-![Ampy logo](/ampylogo.png)
+![Ampy logo](/imgs/ampylogo.png)
 
 # Specification For Ampy
 
