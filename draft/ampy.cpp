@@ -8,7 +8,8 @@
 #include <ctype.h>
 #include <cstdio>
 #include <jsoncpp/json/json.h>
-#include "ampy.h"
+#include "ampy.hpp"
+#include "utilities.cpp"
 
 
 bool verify_file(std::string file_name)

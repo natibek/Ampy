@@ -1,0 +1,130 @@
+{
+    "አይነቶች":
+    {
+        "አይነቶች": "typing", "ሁባሬ": "Union", "የምርጫ":"Optional"
+    },
+    
+    "ባየሽ": 
+    {
+            "ዘር": "seed", "ሁኔታውን_አምጣ": "getstate", "ሁኔታውን_ቀይር": "setstate", 
+            "ባየሽ_ቢት_አምጣ": "getrandbits","ባየሽ_ድርድር":"randrange", "ባየሽ_ድፍን_ቁጥር":"randint", "ምርጫ": "choice", "ምርጫዎች": "choices", 
+            "ፐውዝ": "shuffle", "ናሙና": "sample", "ውህድ": "uniform", "ሶስት_መአዘናዊ": "triangular",  "ሶስት_መዐዘናዊ": "triangular",  "ሶስት_መዓዘናዊ": "triangular", "ባየሽ": "random"
+    },
+
+    "ጥያቄዎች": 
+    {
+            "ራስ":"head", "አስተካክል":"patch", "ለጥፍ":"post", "አስቀምጥ":"put",
+            "ጠይቅ":"request", "አምጣ": "get", "ጥያቄዎች":"requests"
+    },
+
+    "ሂሳብ": 
+    {
+            "ትንሹ":"min", "ትልቁ": "max", "አዎንታ":"abs", 
+            "ዳግም_ዘር": "sqrt", "ጣራ": "ceil", "ምድር":"floor", 
+            "ኢሳይን": "asin", "ኢኮስ":"acos", "ኮስ": "cos",  "ሳይን":"sin", "ኢታን":"atan",
+            "ኢታን2": "atan2", "ታን":"tan", "ጥማሬ":"comb", "ልክ": "degrees", "ርቀት": "dist", 
+            "ሰባራ_አዎንታ": "fabs", "ሰያፍ": "hypo", "ተቀራራቢ_ናቸው": "isclose", 
+            "የሚወሰን_ነው":"isfinite", "የማይወሰን_ነው":"isinf", "ኢቁጥር_ነው":"isnan",
+            "ዳግማዊ_ነው_": "issqrt", "አርባ": "pow", "አጭራሪ": "radians",
+            "ኢ":"exp","ብዜት":"factorial", "ትያከ":"gcd", "ሂሳብ": "math" 
+    },
+
+    "ስታቲስቲክስ":
+    {
+            "ሃርሞኒክ_አማካይ":"harmonic_mean", "ሀርሞኒክ_አማካይ":"harmonic_mean", "አማካይ": "mean", 
+            "መሀለኛ": "median", "መሃለኛ": "median",
+            "መሀለኛ_የተመደበ": "median_grouped", "መሃለኛ_የተመደበ": "median_grouped", 
+            "መሀለኛ_ከፍተኛ": "median_high", "መሃለኛ_ከፍተኛ": "median_high",
+            "መሀለኛ_ዝቅተኛ": "median_low", "መሃለኛ_ዝቅተኛ": "median_low", 
+            "ተደጋጋሚ": "mode", "ሙሉ_ርቆሽ":"pstdev", "ርቆሽ": "stdev", "ሙሉ_አለያየት": "pvariance", "አለያየት":"variance", "ስታቲስቲክስ": "statistics"
+    },
+    
+    "ደንብ":
+    {
+            "አስስ": "search", "አቀናብር":"compile", "ሙሉ_አመሳስል":"fullmatch", "ሁሉንም_ፈልግ":"findall", "በድግግም_ፈልግ":"finditer", 
+            "ንዑስ": "sub", "ንኡስ": "subn", "አስወጣ": "escape", "ደምስስ" :"purge",  "መድብ": "group", "አስፋ": "expand", "ምድቦች": "groups", 
+            "በመዝገብ_መድብ":"groupdict", "መጀመሪያ":"start", "መጨረሻ":"end", "እቀፍ":"span", "ስፍራ":"pos", "መጨረሻ_ስፍራ":"endpos", "መጨረሻ_ቦታ":"lastindex", "መጨረሻ_ምድብ":"lastgroup", "ደንብ":"re"
+    },
+    
+    "አሰራር":
+    {
+            "ግብአት_ዝርዝር":"argv", "ውጣ":"exit", "አሰራር":"sys"
+    },
+    "ድረገጽ_አሳሽ":
+    {
+            "አዲስ_ክፈት": "open_new", "አዲስ_ማውጫ_ክፈት":"open_new_tab", "መዝግብ": "register", "ስም": "name", "ድረገጽ_አሳሽ": "webbrowser"
+    },
+    "ዋና_አሰራር":
+    {
+            "አከባቢ":"environ", "አከባቢ_ቢ":"environb", "አድራሻ":"path", "ማውጫ_ቀይር":"chdir", "ያለንበትን_ማውጫ_አምጣ":"getcwd", "አካባቢ_አምጣ":"getenv",
+            "አካባቢ_ቢ_አምጣ":"getenvb", "አሰራር_ስም":"uname", "አስከፍት":"access", "ማውጫ_ዘርዘር":"listdir", "ማውጫ_ስራ":"mkdir", "ማውጫዎች_ስራ":"mkdirs", 
+            "ማውጫዎች_ሰርዝ":"removedirs", "ዳግም_ሰይም":"rename", "ዳግም_ሰይማቸው":"renames", "ማውጫ_ሰርዝ":"rmdir", "ማውጫ_ነው":"is_dir", "ፋይል_ነው":"is_file",
+            "ጉረድ":"truncate", "ተራመድ":"walk", "አቋርጥ":"abort", "ግደል":"kill", "ጥሩ":"nice","ጊዜያት":"times", "ጠብቅ":"wait", "በመለያ_ጠብቅ":"waitid", 
+            "መክፈያ":"sep", "ባየሽ_አምጣ":"getrandom", "ባየሽ_ከአሰራር":"urandom",  "ከአካባቢ_አውጣ":"unsetevn", "አስመልስ":"unshare" , "ዋና_አሰራር":"os",
+    },
+    "አድራሻ":
+    {
+            "ስር_ስም":"basename", "የታረመ_አድራሻ_አድራሻ":"abspath", "ተመሳሳይ_አድራሻ":"commonpath", "ተመሳሳይ_ድህረ_ቅጥያ":"commonprefix", "የማውጫ_ስም":"dirname", 
+            "አለ":"exists", "ተጠቃሚውን_አስፋ":"expanduser", "የተከፈተበት_ጊዜ_አምጣ":"getatime", "ድራይቭ_ከፋፍል":"splitdrive", "ስር_ከፋፍል":"splitroot", 
+            "ቅጥያ_ከፋፍል":"splitext", "ጥቅም_ጊዜ_አምጣ":"getmtime", "ምስረታ_ጊዜ_አምጣ":"getctime", "መጠን_አምጣ":"getsize", "ፋይልነው":"isfile", "ማውጫነው":"isdir", 
+            "ፍፁም_ነው":"isabs", "መገናኛ_ነው":"isjunction", "አያያዥ_ነው":"islink",  "ማስቀመጫ_ነው":"ismount", "ዴቭ_ድራይቭ_ነው":"isdevdrive", "ፊደል_አስተካክል":"normcase", 
+            "እውነት_አድራሻ":"realpath", "አንፃራዊ_አድራሻ":"relpath", "አንጻራዊ_አድራሻ":"relpath", "አድራሻ_አስተካክል":"normpath", "ተመሳሳይ_ፋይል":"samefile", "ተመሳሳይ_ክፍት_ፋይል":"sameopenfile", 
+            "ተመሳሳይ_ናሙና":"samestat", "አድራሻ":"path"
+    },
+    
+    "ጄሶን":
+    {
+            "አራግፋቸው":"dumps", "አራግፍ":"dump", "ቁልፎችን_ደርድር":"sort_keys", "ወደውስጥ_ግፋ":"indent", "መክፈያዎች":"separators", "ጫናቸው":"loads", "ጫን":"load", 
+            "ጄሶን_ገላጭ":"JSONDeconder",  "ግለጥ":"decode", "ጥሬ_ግለጥ":"raw_decode", "ጄሶን_ሰዋሪ":"JSONEncoder", "በድግግም_ሰውር":"iterencode", "መልእክት":"msg", 
+            "ሰነድ":"doc", "ቦት":"pos", "መስመር_ቁጥር":"lineno", "ረድፍ_ቁጥር":"colno", "ኩልፎችን_ዝለል":"skipkeys", "ኢቁጥር_ፍቀድ":"allow_nan", "አስኪ_አረጋገጠ":"ensure_ascii", 
+            "ክብነት_አጣራ":"check_circular", "ጎዶሎ_ቅጥር_ነጣጥል":"parse_float", "ቅጥር_ነጣጥል":"parse_int", "ቋሚ_ነጣጥል":"parse_constant", "ጥብቅ":"strict", "አይነት":"cls", 
+            "ስሪት_ጠባቂ":"object_hook", "ስሪት_ጥንድ_ጠባቂ":"object_pairs_hook",  "ስሪት":"obj", "ጄሶን":"json",
+    },
+    "ዕለት_ጊዜ":
+    {
+            "ስቃዊ_ጊዜ":"timetz", "ጊዜ":"time", "ቀናት":"days",
+            "ቀን":"day", "ሰክንዶች":"seconds", "ሰክንድ":"second", "ማይክሮ_ሰከንድ":"microsecond", "ማይክሮ_ሰከንዶች":"microseconds", "ሚሊ_ሰከንዶች":"milliseconds", 
+            "ሚሊ_ሰከንድ":"millisecond", "ደቂቃት":"minutes", "ደቂቃ":"minute", "ሰአት":"hour", "ሰዓት":"hour", "ሰዐት":"hour", "ሰአታት":"hours", "ሰዓታት":"hours",
+            "ሰዐታት":"hours", "ሳምንታት":"weeks", "ሳምንት":"week", "ጥቃቅንነት":"resolution", "አጠቃላይ_ሰከንዶች":"total_seconds", "ዛሬ":"today", "አመት":"year", 
+            "ወር":"month", "ወራት":"months", "ጊዜ_ፅኑ_ዝርዝር":"timetuple", "ጊዜ_ጽኑ_ዝርዝር":"timetuple", "ወደመደበኛ" :"toordinal", "አዘቦት":"weekday", "አይኤስኦ_አዘቦት":"isoweekday", 
+            "አይኤስኦ_ካላንደር":"isocalendar", "አሁን":"now", "ዩቲሲ_አሁን":"utcnow", "አዋህድ":"combine", "ከአይኤስኦ_ካላንደር":"fromisocalendar", "እጠፍ":"fold", "ከዩቲሲ":"fromutc", 
+            "ዩቲሲ":"utc", "ጊዜ_ልዩነት":"timedelta", "ጊዜ_ሰቅ_መግለጫ":"tzinfo", "ጊዜ_ሰቅ":"timezone", "ከጊዜማኅተም":"fromtimestamp", "ከመደበኛ":"fromordinal", "ከአይኤስኦ":"fromisoformat", 
+            "አይኤስኦ_ቅርጽ":"isoformat", "ጽሁፋዊ_ጊዜ":"ctime", "ፅሁፋዊ_ጊዜ":"ctime", "ጽሁፍ_ከጊዜ":"strftime", "ፅሁፍ_ቅ_ከጊዜ":"strftime", "ከጽሁፍ_ጊዜ":"strptime", "ከፅሁፍ_ጊዜ":"strptime", 
+            "ዩቱሲ_ከማኅተም":"utcfromtimestamp", "ዩቱሲ_ማካካሻ":"utcoffset",  "ብ_ጊዜ":"dst", "ጊዜ_ሰቅ_ስም":"tzname", "ዕለት":"date",
+            "ዕለት_ጊዜ":"datetime","ትንሹ_አመት":"MINYEAR", "ትልቁ_አመት":"MAXYEAR", "ዩቱሲ_ዩቲሲ":"UTC"
+    },
+    "አቅዳሚ_ክምር":
+    {
+            "ክምር_ግፋ":"heappush", "ክምር_አውጣ":"heappop", "ክምር_ግፋ_አውጣ":"heappushpop", "ከምር":"heapify", "ከምር_ተካ":"heapreplace", "ክምር":"heap", 
+            "እቃ":"item", "ግጠም":"merge", "ቁልፍ":"key", "ትልቆቹ":"nlargest", "ትንሾቹ":"nsmallest", "ቅድሚያ":"priority", "አቅዳሚ_ክምር":"heapq"
+    },
+    "ሲኤስቪ":
+    {
+            "አንባቢ":"reader", "ጸሀፊ":"writer", "ፀሀፊ":"writer", "ዘዬ_መዝግብ":"register_dialect", "ዘዬ":"dialect", "ዘዬ_ሰርዝ":"unregister_dialect",  
+            "ዘዬ_አምጣ":"get_dialect", "ዘዬ_ዘርዝር":"list_dialects", "የቁልፍ_ስፍት_ወሰን":"field_size_limit",  "መዝገብ_አንባቢ":"DictReader", "ፋ":"f", "የቁልፍ_ስሞች":"fieldnames",  
+            "የትርፍ_ቁልፍ":"restkey", "የትርፍ_መጠን":"restval", "መዝገብ_ጸሀፊ":"DictWriter",  "መዝገብ_ፀሀፊ":"DictWriter",  "ዘዬዘዬ":"Dialect", "ኤክሴል":"excel", 
+            "ኤክሴል_ማውጫ":"excel_tab",  "ዩኒክስ_ዘዬ":"unix_dialect", "አነፍናፊ":"Sniffer", "አነፍንፍ":"sniff",  "ራስጌ_አለው":"has_header", "እሻ":"seek", 
+            "ስሕተት":"Error",  "መነጠያ":"delimiter", "ሁለት_ትእምርተ_ጥቅስ":"doublequote", "ውጣ_ፊደል":"escapechar",  "መስመር_ጨራሽ":"lineterminator", "ትእምርተ_ጥቅስ_ፊደል":"quotechar", 
+            "አጠቃቀስ":"quoting",  "ጀማሪ_ባዶ_ዝለል":"skipinitialspace", "መስመር_ቁጥራት":"line_num",  "ተርታ_ጻፍ":"writerow", "ተርታ_ፃፍ":"writerow", "ተርታዎች_ጻፍ":"writerows", 
+            "ተርታዎች_ፃፍ":"writerows", "ሲኤስቪ_ጸሀፊ":"csvwriter", "ሲኤስቪ_ፀሀፊ":"csvwriter",  "ራስጌ_ጸሀፊ":"writeheader", "ራስጌ_ፀሀፊ":"writeheader", "አዲስ_መስመር":"newline" ,
+            "ሲኤስቪ":"csv", "ሁሉን_ጥቀስ":"QUOTE_ALL", "አነስተኛ_ጥቀስ":"QUOTE_MINIMAL", "ኢቁጥር_ጥቀስ":"QUOTE_NONNUMERIC", 
+            "ምንም_ጥቀስ":"QUOTE_NONE",  "ኢአልቦ_ጥቀስ":"QUOTE_NOTNULL", "ፊደላት_ጥቀስ":"QUOTE_STRINGS"
+    },
+    "ጊዜ":
+    {
+            "እንደጽሁፋዊ_ጊዜ":"asctime", "እንደፅሁፋዊ_ጊዜ":"asctime", "ሰዓት_ርቀት_አምጣ":"clock_getres", "ሰዓት_ጊዜ_አምጣ":"clock_gettime", "ሰዓት_ጊዜ_አምጣ_ናኖ":"clock_gettime_ns", 
+            "ሰዓት_ጊዜ_ቀይር":"clock_settime",  "ሰዓት_ጊዜ_ቀይር_ናኖ":"clock_settime_ns", "ሰዓት_መረጃ_አምጣ":"get_clock_info",  "ጊዜ_አምጣ":"gmtime", "የአካባቢ_ጊዜ":"localtime", 
+            "ወደ_ሰከንዶች":"mktime",  "የማይቀንስ":"monotonic", "የማይቀንስ_ናኖ":"monotonic_ns", "ተኛ":"sleep",  "ጊዜ_ናኖ":"time_ns", 
+            "ክር_ጊዜ":"thread_time",  "ክር_ጊዜ_ናኖ":"thread_time_ns", 
+            "ጊዜ_ሰቅ_ቀይር":"tzset", "ማካካሻ":"offset", "ማካካሻ_ጊዜ":"altzone", "ቀነ_ብርሃን":"daylight",
+            "ጊዜ":"time", "ሰዓት_የማስጀመሪያ_ጊዜ":"CLOCK_BOOTTIME", "ሰዓት_ክፍተኛ_ርቀት":"CLOCK_HIGHRES",  "ሰዓት_የማይቀንስ":"CLOCK_MONOTONIC", 
+            "ሰዓት_የማይቀንስ_ጥሬ_":"CLOCK_MONOTONIC_RAW", "ሰዓት_ሲፒዩ_ሂደት_መለያ":"CLOCK_PROCESS_CPU_ID",  
+            "ሰዓት_ሲፒዩ_ሂደት":"CLOCK_PROF", "ሰዓት_ቲኤአይ":"CLOCK_TAI", "ሰዓት_ሲፒዩ_ክር_ጊዜ":"CLOCK_THREAD_CPU_TIME",  
+            "ሰዓት_ያልተዘጋበት_ጊዜ":"CLOCK_UPTIME", "ሰዓት_ያልተዘጋበት_ጊዜ_ጥሬ":"CLOCK_UPTIME_RAW", 
+            "ሰዓት_እውነተኛ_ጊዜ":"CLOCK_REALTIME"
+        }
+    }
+}
+
+
+
