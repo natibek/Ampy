@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 #include <json/json.h>
 
 void generate_builtin_key_bin() {
