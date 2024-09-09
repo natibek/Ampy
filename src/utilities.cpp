@@ -43,7 +43,7 @@ bool is_ampy(std::string file_name)
   return true;
 }
 
-library_keywords read_library_keywords_from_bin(ifstream library_bin_input) {
+library_keywords read_library_keywords_from_bin(const ifstream &library_bin_input) {
   /* Reads the `library_keywords.bin` binary and uses it to fill the `library_keywords` 
    * `unordered_map`. Compares the number of the keywords read and the count stated in the file 
    * to check if the binary has been manipulated. Also, makes sure that the last pair reading stops
@@ -58,21 +58,52 @@ library_keywords read_library_keywords_from_bin(ifstream library_bin_input) {
 
   library_keywords library_map;
   std::string lib, key, val;
-  int read_keyword_count = 0;
+  str_map inner_map;
 
+  int read_keyword_count = 0;
   std::string keywords_size = "-1";
   getline(library_bin_input, keywords_size, '\0');
+
   if (stoi(keywords_size) == -1) {
     std::cout << "\nERROR reading key words size from binary.\n";
     exit(1);
   }
 
   // -1 should be used to mark end of library. It would therefore, show the start as well
-  while ()
+  if (!getline(library_bin_input, lib, '\0')) {
+    std::cout << "`library_keywords.bin` binary is corrupt.\n";
+    exit(1);
+  }
+
+  while (!getline(library_bin_input, key, '\0')) {
+    if (key == "-1") {
+      // a new library's keywords have been reached
+      library_map[lib] = inner_map;
+      keywords_size += inner_map.sizer()
+      if (!getline(library_bin_input, lib, '\0')) break;
+      str_map inner_map;
+    } 
+    else if (!getline(library_bin_input, val, '\0')) {
+      std::cout << "`library_keywords.bin` binary is corrupt.\n";
+      exit(1);
+    } 
+    else {
+      inner_map[key] = val;
+    }
+  }
     
+  library_bin_input.close();
+
+  if (stoi(keywords_size) != read_keyword_count) {
+    std::cout << "\nERROR => Read " << read << " | Expected " << stoi(keywords_size) << '\n';
+    std::cout << "Download the correct keyword binary";
+    exit(1);
+  }
+
+  return library_map;
 }
 
-builtin_keywords read_builtin_keywords_from_bin(ifstream builtin_bin_input) {
+builtin_keywords read_builtin_keywords_from_bin(const ifstream &builtin_bin_input) {
   /* Reads the `builtin_keywords.bin` binary and uses it to fill the `builtin_keywords` 
    * `unordered_map`. Compares the number of the keywords read and the count stated in the file 
    * to check if the binary has been manipulated. Also, makes sure that the last pair reading stops
@@ -97,8 +128,7 @@ builtin_keywords read_builtin_keywords_from_bin(ifstream builtin_bin_input) {
     exit(1);
   }
 
-  while (1) {
-    if (!getline(builtin_bin_input, key, '\0')) break;
+  while (!getline(builtin_bin_input, key, '\0')) {
     if (!getline(builtin_bin_input, val, '\0')) {
       std::cout << "`builtin_keywords.bin` binary is corrupt.\n";
       exit(1);

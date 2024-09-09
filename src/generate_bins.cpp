@@ -42,31 +42,48 @@ key_words_map initialize_key_word_map()
   return initialized_key_words;
 }
 
-void generate_builtin_key_bin(key_words_map initialized_map) {
-  std::ofstream bin_out ("./keywords.bin", std::ios_base::binary);
-  int len;
+void generate_builtin_key_bin(builtin_keywords builtin_map) {
+  std::ofstream bin_out ("./../data/builtin_keywords.bin", std::ios_base::binary);
 
-  std::cout << initialized_map.size() << " : KEY MAP SIZE\n";
+  std::cout << builtin_map.size() << " : BUILTIN MAP SIZE\n";
 
-  std::string key_word_size = std::to_string(initialized_map.size());
-  bin_out.write(key_word_size.c_str(), key_word_size.length() + 1);
+  std::string map_size = std::to_string(builtin_map.size());
+  bin_out.write(map_size.c_str(), map_size.length() + 1);
 
-  for (auto x: initialized_map) {
-    bin_out.write(x.first.c_str(), x.first.length() + 1);
-    bin_out.write(x.second.c_str(), x.second.length() + 1);
+  for (const auto &[key, value]: builtin_map) {
+    bin_out.write(key.c_str(), key.length() + 1);
+    bin_out.write(value.c_str(), value.length() + 1);
   }
 
   bin_out.close();
-
-  return 0;
 }
 
 
-void generate_library_key_bin() {
+void generate_library_key_bin(library_keywords library_map) {
+  std::ofstream bin_out ("./../data/library_keywords.bin", std::ios_base::binary);
 
+  std::cout << library_map.size() << " : LIBRARY MAP SIZE\n";
+  int total_size = 0;
+  for (const auto &[lib, inner_map]: library_map) total_size += inner_map.size();
+
+
+  std::string map_size = std::to_string(total_size);
+  bin_out.write(map_size.c_str(), map_size.length() + 1);
+
+  for (const auto &[lib, inner_map]: library_map) {
+    bin_out.write(lib.c_str(), lib.length() + 1);
+    for (const auto &[key, val]: inner_map) {
+      bin_out.write(key.c_str(), key.length() + 1);
+      bin_out.write(val.c_str(), val.length() + 1);
+    }
+    bin_out.write("-1", 3);
+  }
 }
 
 int main() {
-  keyword_map initialized_map = initialize_key_word_map();
-  generate_builtin_key_bin()
+  builtin_keywords builtin_map = initialize__map();
+  generate_builtin_key_bin(initialized_map);
+  generate_library_key_bin(initialized_map);
+
+  return 0
 }
