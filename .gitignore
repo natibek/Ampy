@@ -1,5 +1,6 @@
 /draft/ampy
 /draft/json_parser
 /draft/test.sh
-
+/src/gen_bins
+/src/utils
 /.vscode
