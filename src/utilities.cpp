@@ -194,19 +194,22 @@ void read_keys_from_bin(builtin_keywords &builtin_map,
   }
 
   builtin_map = read_builtin_keywords_from_bin(builtin_bin_input);
-  builtin_bin_input.close();
   library_map = read_library_keywords_from_bin(library_bin_input);
-  library_bin_input.close();
 }
 
-int main() {
+void read_keys(bool test) {
   builtin_keywords builtin_map;
   library_keywords library_map;
   read_keys_from_bin(builtin_map, library_map);
-  assert(builtin_map["ከሆነ"] == "if");
-  assert(library_map["ባየሽ"]["ባየሽ"] == "random");
-  assert(library_map["ጊዜ"]["ጊዜ"] == "time");
-  std::cout << "ከሆነ = " << builtin_map["ከሆነ"]
-            << " ባየሽ = " << library_map["ባየሽ"]["ባየሽ"]
-            << " ጊዜ = " << library_map["ጊዜ"]["ጊዜ"];
+
+  if (test) {
+    assert(builtin_map["ከሆነ"] == "if");
+    assert(library_map["ባየሽ"]["ባየሽ"] == "random");
+    assert(library_map["ጊዜ"]["ጊዜ"] == "time");
+    std::cout << "ከሆነ = " << builtin_map["ከሆነ"]
+              << " ባየሽ = " << library_map["ባየሽ"]["ባየሽ"]
+              << " ጊዜ = " << library_map["ጊዜ"]["ጊዜ"];
+  }
 }
+
+// int main() { read_keys(true); }
