@@ -5,3 +5,9 @@
 /src/utils
 /src/ampy
 /.vscode
+/src/CMakeFiles/
+/src/compile_commands.json
+/src/cmake_install.cmake
+*\.pch
+           
+
