@@ -1,19 +1,43 @@
-#include "utilities.cpp"
+// clang++ --std=c++20 -stdlib=libc++ ampy.cpp utilities.cpp -o ampy
+#include "ampy.hpp"
+
+class Transpiler 
+{
+private:
+  builtin_keywords file_keywords;
+
+public:
+  Transpiler(): file_keywords (default_keywords) {
+    std::cout << "Constructor called\n";
+  };
+
+  void run() {
+    std::cout << "RUNNING\n";
+  }
+
+  void transpile(){
+    std::cout << "Transpiler called\n";
+
+    // imports for ampy should have a '.ampy' or '.am'
+  }
+
+};
+
 
 int main(int argc, char *argv[]) {
-  builtin_keywords builtin_map;
-  library_keywords library_map;
-  read_keys_from_bin(builtin_map, library_map);
+  read_keys_from_bin(default_keywords, default_library_keywords);
 
   if (argc > 1) {
     std::string arg(argv[1]);
     if (arg == "test") {
-      assert(builtin_map["ከሆነ"] == "if");
-      assert(library_map["ባየሽ"]["ባየሽ"] == "random");
-      assert(library_map["ጊዜ"]["ጊዜ"] == "time");
-      std::cout << "ከሆነ = " << builtin_map["ከሆነ"]
-                << " ባየሽ = " << library_map["ባየሽ"]["ባየሽ"]
-                << " ጊዜ = " << library_map["ጊዜ"]["ጊዜ"];
+      assert(default_keywords["ከሆነ"] == "if");
+      assert(default_library_keywords["ባየሽ"]["ባየሽ"] == "random");
+      assert(default_library_keywords["ጊዜ"]["ጊዜ"] == "time");
     }
   }
+  
+  Transpiler transpiler;
+  transpiler.transpile();
+
+  return 0;
 }

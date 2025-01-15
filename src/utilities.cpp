@@ -1,9 +1,4 @@
 #include "ampy.hpp"
-#include <cassert>
-#include <filesystem>
-#include <fstream>
-#include <iostream>
-#include <unistd.h>
 
 bool is_ampy(std::string file_name) {
   /* Verifies if the file exists and has an .ampy extension. Exits with code 1
