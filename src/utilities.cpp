@@ -97,8 +97,8 @@ read_library_keywords_from_bin(std::ifstream &library_bin_input) {
     std::cout << "Download the correct library keyword binary.";
     exit(1);
   }
-  std::cout << read_keyword_count
-            << " pairs successfully extracted from `library_keywords.bin`.\n";
+  // std::cout << read_keyword_count
+  //           << " pairs successfully extracted from `library_keywords.bin`.\n";
 
   return library_map;
 }
@@ -146,8 +146,8 @@ read_builtin_keywords_from_bin(std::ifstream &builtin_bin_input) {
     exit(1);
   }
 
-  std::cout << read_keyword_count
-            << " pairs successfully extracted from `builtin_keywords.bin`.\n";
+  // std::cout << read_keyword_count
+  //           << " pairs successfully extracted from `builtin_keywords.bin`.\n";
   return builtin_map;
 }
 

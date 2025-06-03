@@ -12,7 +12,7 @@ void generate_builtin_key_bin() {
   json_file >> myJson;
 
   // std::cout << myJson << '\n';
-  std::cout << myJson.size() << " : BUILTIN KEYWORDS JSON SIZE\n";
+  // std::cout << myJson.size() << " : BUILTIN KEYWORDS JSON SIZE\n";
 
   std::string map_size = std::to_string(myJson.size());
   bin_out.write(map_size.c_str(), map_size.length() + 1);
@@ -40,11 +40,10 @@ void generate_library_key_bin() {
   // std::cout << myJson << '\n';
 
   int total_size = 0;
-  for (Json::Value::const_iterator it = myJson.begin(); it != myJson.end();
-       ++it)
+  for (Json::Value::const_iterator it = myJson.begin(); it != myJson.end(); ++it)
     total_size += (*it).size();
 
-  std::cout << total_size << " : LIBRARY KEYWORDS JSON SIZE\n";
+  // std::cout << total_size << " : LIBRARY KEYWORDS JSON SIZE\n";
 
   std::string map_size = std::to_string(total_size);
   bin_out.write(map_size.c_str(), map_size.length() + 1);
